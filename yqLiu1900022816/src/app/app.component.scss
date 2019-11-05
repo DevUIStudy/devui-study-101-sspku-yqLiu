@@ -20,9 +20,22 @@ header{
         margin-top: 30px;
         font-size: 40px;
         color: white;
+        
     }
     
 }
-body{
+.left{
     background-color: honeydew;
+    width: 200px;
+    float: left;
+    height: 1200px;
+}
+.content{
+    width: calc(100%-240px);
+    float: left;
+    height: 1200px;
+    margin-left: 40px;
+}
+.redtabs{
+    color: red;
 }
