@@ -1,0 +1,28 @@
+
+// background: cornsilk;
+header{
+    width: 100%;
+    height: 60px;
+    background: black;
+    
+    margin: 5px;
+    .logo{
+        width:400px;
+        float: left;
+    }
+    a{
+        color:red;
+
+    }
+    #menu{
+        width: calc(100% - 400px);
+        float: left;
+        margin-top: 30px;
+        font-size: 40px;
+        color: white;
+    }
+    
+}
+body{
+    background-color: honeydew;
+}
