@@ -74,7 +74,7 @@ export class AdminComponent implements OnInit {
 
 ngOnInit() {
   }
-  tab1acticeID = 'tab2';
+  tab1acticeID = 'tab1';
 
   itemClick(event) {
     console.log('item click' + JSON.stringify(event));

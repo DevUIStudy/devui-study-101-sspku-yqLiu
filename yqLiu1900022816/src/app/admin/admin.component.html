@@ -5,10 +5,16 @@
   <!-- <a href="#">首页</a> -->
   <div id="menu">
 
-    <d-tabs [(activeTab)]="tab22acticeID" [showContent]="false" cssClass="redtabs">
-      <d-tab id="tab1" title="首页" tabId="tab1"> </d-tab>
+    <d-tabs [(activeTab)]="tab22acticeID" [showContent]="false" [cssClass]="redTab">
+      <d-tab id="tab1" title="首页" tabId="tab1" > </d-tab>
 
     </d-tabs>
+    <!-- <d-button>首页</d-button> -->
+  </div>
+
+  <div class = hi>
+    <p> hi&nbsp;XXX</p>
+
   </div>
 
 
@@ -21,7 +27,7 @@
   </div>
   <div class="content">
     <d-tabs [type]="'tabs'" [(activeTab)]="tab1acticeID">
-      <d-tab id="tab1" title="Home" tabId="tab1">
+      <d-tab id="tab1" title="项目成员" tabId="tab1">
         <ng-template dTabContent>
           <div class="search">
             <d-search [placeholder]="'Please Input keywords'" [isKeyupSearch]="true" (searchFn)="onSearch($event)"
@@ -47,7 +53,7 @@
         </ng-template>
       </d-tab>
 
-      <d-tab id="tab2" title="Profile" tabId="tab2">
+      <d-tab id="tab2" title="待审核" tabId="tab2">
         <ng-template dTabContent>
 
         </ng-template>

@@ -4,38 +4,55 @@ header{
     width: 100%;
     height: 60px;
     background: black;
-    
-    margin: 5px;
+    display: flex;
+    padding-top: 5px;
     .logo{
-        width:400px;
+        width:250px;
         float: left;
+        padding-left: 10px;
+
     }
     a{
         color:red;
 
     }
     #menu{
-        width: calc(100% - 400px);
+        width: calc(100% - 200px);
         float: left;
-        margin-top: 30px;
+        margin-top: 25px;
         font-size: 40px;
         color: white;
+        .redTab{
+            color: red;
+            font-size: 20px;
+            border-bottom-color: red;
+        }
         
+    }
+    .hi{
+        color: white;
+        padding-top: 10px;
+        font-size: 20px;
+
     }
     
 }
 .main{
     width: 100%;
-
+    height: 100%;
     display: flex;
     justify-content: flex-start;
+    background: #F3F7FE;
+
 }
 .left{
     // background-color: honeydew;
     // width: 200px;
     width: 12%;
     min-width: 200px;
-    height: 100%;
+    height:1200px;
+    background: white;
+    padding-left:10px;
 
     // height: 1200px;
 }
@@ -44,11 +61,13 @@ header{
     // height: 1200px;
     // margin-left: 40px;
     width:88%;
-    padding-left: 50px;
+    margin-top :15px;
+    margin-right :25px;
+    margin-left: 50px;
+    background: white;
+    padding-left: 10px;
 }
-.redtabs{
-    color: red;
-}
+
 .search{
     width: 40%;
     float:left;
