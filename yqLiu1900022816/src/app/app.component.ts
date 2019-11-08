@@ -9,97 +9,62 @@ import { originSource, SourceType } from '../mock-data';
 })
 export class AppComponent {
   //表格的数据
-  pagerSource = JSON.parse(JSON.stringify(originSource));
-  sortableDataSource: Array<SourceType> = JSON.parse(JSON.stringify(originSource.slice(0, 6)));
-  filterList2 = [
-    {
-      name: 'Clear',
-      value: 'Clear',
-    }, {
-      name: 'Male',
-      value: 'Male',
-    }, {
-      name: 'Female',
-      value: 'Female',
-    }];
-  filterList = [
-    {
-      name: 'Mark',
-      value: 'Mark'
-    },
-    {
-      name: 'Jacob',
-      value: 'Jacob'
-    },
-    {
-      name: 'Danni',
-      value: 'Danni'
-    },
-    {
-      name: 'green',
-      value: 'green'
-    },
-    {
-      name: 'po',
-      value: 'po'
-    },
-    {
-      name: 'john',
-      value: 'john'
-    },
+  basicDataSource: Array<SourceType> = JSON.parse(JSON.stringify(originSource.slice(0, 6)));
+  dataTableOptions = {
+    columns: [
+        {
+            field: 'firstName',
+            header: 'First Name',
+            fieldType: 'text'
+        },
+        {
+            field: 'lastName',
+            header: 'Last Name',
+            fieldType: 'text'
+        },
+        {
+            field: 'gender',
+            header: 'gender',
+            fieldType: 'text'
+        },
+        {
+            field: 'dob',
+            header: 'Date of birth',
+            fieldType: 'date'
+        }
+    ]
+};
 
-  ];
-  filterListMulti = JSON.parse(JSON.stringify(originSource.slice(0, 6)));
-  sortedColumn = [{
-    field: 'lastName',
-    direction: 'ASC'
-  }];
-  hideColumn = ['hidden'];
-  total = 20;
-  next = 1;
-  complete = false;
-  lazyDataSource = [];
-  loading: LoadingType;
 
 
   //tab的数据
   title = 'yqLiu1900022816';
   restrictOneOpen = false;
   menu = [{
-    title: '内容一',
+    title: '通用设置',
     children: [
-      { title: '子内容1' },
-      { title: '子内容2' },
-      { title: '子内容3' },
+      { title: '设置1' },
+      { title: '设置2' },
+      { title: '设置3' },
     ]
   }, {
-    title: '内容二（超长长长长长长长长长长长长长长内容测试）',
-    children: [
-      { title: '子内容1（超长长长长长长长长长长长长长长内容测试' },
-      { title: '子内容2' },
-      { title: '子内容3' },
-    ]
-  }, {
-    title: '内容三（默认展开）',
+    title: '项目管理',
     open: true,
     children: [
+      { title: '项目设置模板' ,active: true},
+      { title: '设置项目创建者' },
+      { title: '项目成员管理' },
+    ]
+  }, {
+    title: '编译构成',
+
+    children: [
       { title: '子内容1(禁用)', disabled: true },
-      { title: '子内容2(默认激活)', active: true },
+      { title: '子内容2(默认激活)',  },
       { title: '子内容3' },
     ]
   }, {
-    title: '内容四（没有子项）'
-  }, {
-    title: '内容五（禁用）',
-    disabled: true,
-    children: [
-    ]
-  }, {
-    title: '内容六（动态加载）',
-    needLoadChildren: true,
-    loading: false,
-    children: [
-    ]
+    title: '私有依赖库'
   }];
 
 
@@ -107,7 +72,7 @@ export class AppComponent {
   constructor(private ref: ChangeDetectorRef) { }
   ngOnInit() {
   }
-  
+  tab1acticeID = 'tab2';
 
   itemClick(event) {
     console.log('item click' + JSON.stringify(event));
@@ -127,48 +92,5 @@ export class AppComponent {
       }, 1000);
     }
   }
-  changePageContent($event) {
-    this.sortableDataSource = this.pagerSource.slice(($event.pageIndex - 1) * $event.pageSize, $event.pageIndex * $event.pageSize - 1);
-  }
 
-  multiSortChange(multiSort) {
-    console.log('multiSort selected', multiSort);
-  }
-
-  onResize(event) {
-    console.log(event);
-  }
-
-  filterChangeRadio($event) {
-    if ($event.name === 'Clear') {
-      this.sortableDataSource = JSON.parse(JSON.stringify(originSource.slice(0, 6)));
-      return;
-    }
-    const filterList = $event.name;
-    const dataDisplay = [];
-    JSON.parse(JSON.stringify(originSource.slice(0, 6))).map(item => {
-      if (filterList.includes(item.gender)) {
-        dataDisplay.push(item);
-      }
-    });
-    this.sortableDataSource = dataDisplay;
-  }
-
-  filterChangeMultiple($event) {
-    const filterList = $event.map(item => item.name);
-    const dataDisplay = [];
-    JSON.parse(JSON.stringify(originSource.slice(0, 6))).map(item => {
-      if (filterList.includes(item.firstName)) {
-        dataDisplay.push(item);
-      }
-    });
-    this.sortableDataSource = dataDisplay;
-  }
-
-  beforeFilter = (currentValue) => {
-    console.log(currentValue);
-    this.filterListMulti = this.filterList;
-    this.ref.detectChanges();
-    return true;
-  }
 }

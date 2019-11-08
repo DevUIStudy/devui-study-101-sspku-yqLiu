@@ -6,11 +6,8 @@
   <div id="menu">
 
     <d-tabs [(activeTab)]="tab22acticeID" [showContent]="false" cssClass="redtabs">
-      <d-tab id="tab1" title="Home" tabId="tab1"> </d-tab>
+      <d-tab id="tab1" title="首页" tabId="tab1"> </d-tab>
 
-      <d-tab id="tab2" title="Profile" tabId="tab2"> </d-tab>
-
-      <d-tab id="tab3" title="Fat" tabId="tab3"> </d-tab>
     </d-tabs>
   </div>
 
@@ -23,32 +20,41 @@
       (menuToggle)="menuToggle($event)"></d-accordion>
   </div>
   <div class="content">
-    <d-tabs [(activeTab)]="tab22acticeID" [showContent]="false" cssClass="redtabs">
-      <d-tab id="tab1" title="Home" tabId="tab1"> </d-tab>
+    <d-tabs [type]="'tabs'" [(activeTab)]="tab1acticeID">
+      <d-tab id="tab1" title="Home" tabId="tab1">
+        <ng-template dTabContent>
+          <div class="search">
+            <d-search [placeholder]="'Please Input keywords'" [isKeyupSearch]="true" (searchFn)="onSearch($event)"
+              style="width: 400px;"></d-search>
+          </div>
+          <div class="tags">
+            <i class = 'icon-set-normal-icon'></i>
+            <p>添加成员&nbsp;&nbsp;</p>
+            <i class = 'icon-qrcode'></i>
+            <p>通过链接邀请&nbsp;&nbsp;    </p>
+            <i class = 'icon-help'></i>
+            <p>用户权限查询&nbsp;&nbsp;   </p>
+          </div>
+          <div class="table">
+            <d-data-table #datatable [dataSource]="basicDataSource" [scrollable]="true" [type]="'striped'"
+              [checkable]="true" >
+              <d-column field="$index" header="#" [width]="'50px'"></d-column>
+              <d-column *ngFor="let colOption of dataTableOptions.columns" [field]="colOption.field"
+                [header]="colOption.header" [fieldType]="colOption.fieldType" [width]="'150px'">
+              </d-column>
+            </d-data-table>
+          </div>
+        </ng-template>
+      </d-tab>
 
-      <d-tab id="tab2" title="Profile" tabId="tab2"> </d-tab>
+      <d-tab id="tab2" title="Profile" tabId="tab2">
+        <ng-template dTabContent>
 
-      <d-tab id="tab3" title="Fat" tabId="tab3"> </d-tab>
+        </ng-template>
+      </d-tab>
     </d-tabs>
 
-    <d-search [placeholder]="'Please Input keywords'" [isKeyupSearch]="true" (searchFn)="onSearch($event)"
-      style="width: 400px;"></d-search>
 
-    <d-data-table [dataSource]="sortableDataSource" [onlyOneColumnSort]="true" [(multiSort)]="sortedColumn"
-      [scrollable]="true" [resizeable]="true" (multiSortChange)="multiSortChange($event)"
-      (pageIndexChange)="changePageContent($event)" (resize)="onResize($event)" [checkable]="true"
-      [hideColumn]="hideColumn" [showSortIcon]="true">
-      <d-column field="$index" header="#" [width]="'50px'"></d-column>
-      <d-column field="firstName" header="First Name" [sortable]="true" [width]="'150px'" [filterable]="true"
-        [filterList]="filterListMulti" [beforeFilter]="beforeFilter" (filterChange)="filterChangeMultiple($event)">
-      </d-column>
-      <d-column field="lastName" header="Last Name" [sortable]="true" [width]="'150px'"></d-column>
-      <d-column field="gender" header="Gender" [sortable]="true" [width]="'100px'" [filterable]="true"
-        [filterMultiple]="false" [filterList]="filterList2" (filterChange)="filterChangeRadio($event)"></d-column>
-      <d-column field="dob" header="Date of birth" [fieldType]="'date'" [extraOptions]="{ dateFormat: 'MM/DD/YYYY' }"
-        [width]="'100px'"></d-column>
-      <d-column field="hidden" header="hidden" [width]="'100px'">hidden</d-column>
-    </d-data-table>
-    
+
   </div>
 </div>
