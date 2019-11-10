@@ -1,41 +1,6 @@
 
-// background: cornsilk;
-header{
-    width: 100%;
-    height: 60px;
-    background: black;
-    display: flex;
-    padding-top: 5px;
-    .logo{
-        width:250px;
-        float: left;
-        padding-left: 10px;
-
-    }
-    a{
-        color:red;
-
-    }
-    #menu{
-        width: calc(100% - 200px);
-        float: left;
-        margin-top: 25px;
-        font-size: 40px;
-        color: white;
-        .redTab{
-            color: red;
-            font-size: 20px;
-            border-bottom-color: red;
-        }
-        
-    }
-    .hi{
-        color: white;
-        padding-top: 10px;
-        font-size: 20px;
-
-    }
-    
+:host ::ng-deep .devui-accordion-menu{
+    box-shadow:0 0px 0px 0 rgba(41,48,64,.2);
 }
 .main{
     width: 100%;
@@ -53,33 +18,18 @@ header{
     height:1200px;
     background: white;
     padding-left:10px;
-
-    // height: 1200px;
+    padding-top: 20px;
 }
 .content{
-    // width: calc(100%-240px);
-    // height: 1200px;
-    // margin-left: 40px;
+
     width:88%;
-    margin-top :15px;
-    margin-right :25px;
-    margin-left: 50px;
+    margin-top :10px;
+    margin-right :15px;
+    margin-left: 20px;
     background: white;
     padding-left: 10px;
 }
+.header{
 
-.search{
-    width: 40%;
-    float:left;
-}
-.tags{
-    width: 60%;
-    float:left;
-    display: flex;
-    justify-content: flex-end;
-
-}
-.pages{
-    display: flex;
-    justify-content:flex-end;
+    width: 100%;
 }

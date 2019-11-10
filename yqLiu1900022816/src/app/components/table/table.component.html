@@ -1,17 +1,51 @@
-<d-data-table
-  #datatable
-  [dataSource]="basicDataSource"
-  [scrollable]="true"
-  [type]="'striped'"
-  [checkable]="true"
->
-  <d-column field="$index" header="#" [width]="'50px'"></d-column>
-  <d-column
-    *ngFor="let colOption of dataTableOptions.columns"
-    [field]="colOption.field"
-    [header]="colOption.header"
-    [fieldType]="colOption.fieldType"
-    [width]="'150px'"
-  >
-  </d-column>
-</d-data-table>
+<div class="table">
+  <d-tabs [type]="'tabs'" [(activeTab)]="tab1acticeID">
+    <d-tab id="tab1" title="项目成员" tabId="tab1">
+      <ng-template dTabContent>
+        <div class="search">
+          <d-search [placeholder]="'Please Input keywords'" [isKeyupSearch]="true" (searchFn)="onSearch($event)"
+            style="width: 400px;"></d-search>
+        </div>
+        <div class="tags">
+          <i class='icon-set-normal-icon'></i>
+          <p>添加成员&nbsp;&nbsp;</p>
+          <i class='icon-qrcode'></i>
+          <p>通过链接邀请&nbsp;&nbsp; </p>
+          <i class='icon-help'></i>
+          <p>用户权限查询&nbsp;&nbsp; </p>
+        </div>
+        <div class="table">
+          <d-data-table #datatable [dataSource]="basicDataSource" [scrollable]="true" [type]="'striped'"
+            [checkable]="true">
+            <d-column field="$index" header="#" [width]="'50px'"></d-column>
+            <d-column *ngFor="let colOption of dataTableOptions.columns" [field]="colOption.field"
+              [header]="colOption.header" [fieldType]="colOption.fieldType" [width]="'150px'">
+            </d-column>
+          </d-data-table>
+          <d-pagination [total]="pager3.total" [(pageSize)]="pager3.pageSize" [totalItemText]="'总条数'"
+            [(pageIndex)]="pager3.pageIndex" [canViewTotal]="true" [canChangePageSize]="true" [lite]="true"
+            [haveConfigMenu]="true" class="pages">
+            <div class="pagination-config-item">
+              <div class="config-item-title">显示字段</div>
+              <div class="config-item-words">点击设置</div>
+            </div>
+            <div class="pagination-config-item">
+              <div class="config-item-title">显示方式</div>
+              <div style="padding-left:10px;margin-top:4px">
+                <i class="icon-list-view"></i>
+                <i class="icon-veIcon-briefcase"></i>
+              </div>
+            </div>
+
+          </d-pagination>
+        </div>
+      </ng-template>
+    </d-tab>
+
+    <d-tab id="tab2" title="待审核" tabId="tab2">
+      <ng-template dTabContent>
+
+      </ng-template>
+    </d-tab>
+  </d-tabs>
+</div>

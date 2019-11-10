@@ -1,0 +1,35 @@
+
+:host ::ng-deep .nav-tabs li.active>a{
+    font-size: 14px;
+    color: #405DFF;
+}
+:host ::ng-deep .nav-tabs li.active{
+    border-bottom-color: #405DFF;
+}
+:host ::ng-deep .nav-tabs {
+    font-size:12px;
+    padding-top: 10px;
+    margin-left: 20px;
+}
+
+
+.table{
+    padding-top: 25px;
+    padding-left:20px;
+}
+.search{
+    width: 40%;
+    float:left;
+    padding-left:20px;
+}
+.tags{
+    width: 60%;
+    float:left;
+    display: flex;
+    justify-content: flex-end;
+
+}
+.pages{
+    display: flex;
+    justify-content:flex-end;
+}

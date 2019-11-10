@@ -9,33 +9,6 @@ import { originSource, SourceType } from '../../mock-data';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit {
-  //表格的数据
-  basicDataSource: Array<SourceType> = JSON.parse(JSON.stringify(originSource.slice(0, 6)));
-  dataTableOptions = {
-    columns: [
-        {
-            field: 'firstName',
-            header: 'First Name',
-            fieldType: 'text'
-        },
-        {
-            field: 'lastName',
-            header: 'Last Name',
-            fieldType: 'text'
-        },
-        {
-            field: 'gender',
-            header: 'gender',
-            fieldType: 'text'
-        },
-        {
-            field: 'dob',
-            header: 'Date of birth',
-            fieldType: 'date'
-        }
-    ]
-};
-
 
 
   //tab的数据
@@ -68,29 +41,14 @@ export class AdminComponent implements OnInit {
     title: '私有依赖库'
   }];
 
-  /* 分页 */ 
-  pager1 = {
-    total: 100,
-    pageIndex: 1,
-    pageSize: 10
-  };
-  pager2 = {
-    total: 30,
-    pageIndex: 3,
-    pageSize: 10
-  };
-  pager3 = {
-    total: 0,
-    pageIndex: 1,
-    pageSize: 10
-  };
+
 
 
   constructor(private ref: ChangeDetectorRef) { }
 
 ngOnInit() {
   }
-  tab1acticeID = 'tab1';
+
 
   itemClick(event) {
     console.log('item click' + JSON.stringify(event));
@@ -110,14 +68,7 @@ ngOnInit() {
       }, 1000);
     }
   }
-  setTotal(number) {
-    this.pager3.total = number;
-  }
 
-  setIndex(number: number) {
-    this.pager3.pageIndex = number;
-    console.log(this.pager3.pageIndex);
-  }
 
 }
 
