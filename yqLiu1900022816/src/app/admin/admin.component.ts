@@ -68,6 +68,22 @@ export class AdminComponent implements OnInit {
     title: '私有依赖库'
   }];
 
+  /* 分页 */ 
+  pager1 = {
+    total: 100,
+    pageIndex: 1,
+    pageSize: 10
+  };
+  pager2 = {
+    total: 30,
+    pageIndex: 3,
+    pageSize: 10
+  };
+  pager3 = {
+    total: 0,
+    pageIndex: 1,
+    pageSize: 10
+  };
 
 
   constructor(private ref: ChangeDetectorRef) { }
@@ -93,6 +109,14 @@ ngOnInit() {
         event.item.loading = false;
       }, 1000);
     }
+  }
+  setTotal(number) {
+    this.pager3.total = number;
+  }
+
+  setIndex(number: number) {
+    this.pager3.pageIndex = number;
+    console.log(this.pager3.pageIndex);
   }
 
 }
