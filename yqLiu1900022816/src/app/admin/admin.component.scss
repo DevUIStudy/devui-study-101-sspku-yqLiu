@@ -8,6 +8,7 @@
     display: flex;
     justify-content: flex-start;
     background: #F3F7FE;
+    z-index: 1;
 
 }
 .left{
@@ -19,6 +20,7 @@
     background: white;
     padding-left:10px;
     padding-top: 20px;
+    z-index: 5;
 }
 .content{
 
@@ -30,6 +32,7 @@
     padding-left: 10px;
 }
 .header{
-
+    position: relative;
+    z-index: 10;
     width: 100%;
 }
