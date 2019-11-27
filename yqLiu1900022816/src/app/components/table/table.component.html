@@ -21,17 +21,7 @@
             <d-column *ngFor="let colOption of dataTableOptions.columns" [field]="colOption.field"
               [header]="colOption.header" [fieldType]="colOption.fieldType" [width]="'150px'">
             </d-column>
-            <d-column [width]="'50px'">
-              <d-cell>
-                <ng-template let-rowIndex="rowIndex" let-rowItem="rowItem">
-                  <div
-                    *ngIf="rowIndex !== 2"
-                    class="icon icon-create-sub-item cursor-pointer"
-                    (click)="addSubData(rowIndex, rowItem)"
-                  ></div>
-                </ng-template>
-              </d-cell>
-            </d-column>
+            
           </d-data-table>
           <d-pagination [total]="pager3.total" [(pageSize)]="pager3.pageSize" [totalItemText]="'总条数'"
             [(pageIndex)]="pager3.pageIndex" [canViewTotal]="true" [canChangePageSize]="true" [lite]="true"

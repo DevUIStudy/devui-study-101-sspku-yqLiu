@@ -1,7 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef,  ChangeDetectorRef } from '@angular/core';
 import { SourceType, originSource } from '../../../mock-data';
-import { TableExpandConfig } from 'data-table.model';
-
 
 @Component({
   selector: 'app-table',
@@ -59,14 +57,7 @@ export class TableComponent implements OnInit {
     ]
   };
   //最后一列的数据
-  genderSource = ['male', 'female'];
-  headerExpandConfig: TableExpandConfig;
-  defaultRowData = {
-    firstName: '',
-    lastName: '',
-    gender: 'Female',
-    dob: new Date(1991, 3, 1),
-  };
+
 
 
 
@@ -132,44 +123,6 @@ export class TableComponent implements OnInit {
       }, 1000);
     }
   }
-  setTotal(number) {
-    this.pager3.total = number;
-  }
-
-  setIndex(number: number) {
-    this.pager3.pageIndex = number;
-    console.log(this.pager3.pageIndex);
-  }
-  ngAfterContentInit() {
-    this.headerExpandConfig = { expand: true, expandTemplateRef: this.quickAddRowTip };
-  }
-
-  newRow() {
-    this.headerExpandConfig.expandTemplateRef = this.quickAddRowContent;
-  }
-
-  quickRowAdded() {
-    const newData = { ...this.defaultRowData };
-    this.basicDataSource.unshift(newData);
-    this.headerExpandConfig.expandTemplateRef = this.quickAddRowTip;
-  }
-
-  quickRowCancel() {
-    this.headerExpandConfig.expandTemplateRef = this.quickAddRowTip;
-  }
-
-  addSubData(index, item) {
-    this.basicDataSource[index].expandConfig = { expand: true, expandTemplateRef: this.addSubRowContent };
-  }
-
-  subRowAdded(index, item) {
-    this.basicDataSource[index].expandConfig.expand = false;
-    const newData = { ...this.defaultRowData };
-    this.basicDataSource.splice(index + 1, 0, newData);
-  }
-
-  subRowCancel(index) {
-    this.basicDataSource[index].expandConfig.expand = false;
-  }
+  
 
 }

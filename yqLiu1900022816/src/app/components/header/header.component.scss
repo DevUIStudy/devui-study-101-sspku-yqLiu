@@ -27,16 +27,15 @@ header{
         color: white;
         padding-top: 10px;
         font-size: 17px;
-
+        :host ::ng-deep .nav-tabs li.active{
+            border-bottom-color: red;
+        }
+        :host ::ng-deep .nav-tabs li.active>a{
+            color: red;
+            font-size: 20px;
+            padding-bottom: 5px;
+        }
     }
    
     
-}
-:host ::ng-deep .nav-tabs li.active{
-    border-bottom-color: red;
-}
-:host ::ng-deep .nav-tabs li.active>a{
-    color: red;
-    font-size: 20px;
-    padding-bottom: 5px;
 }
